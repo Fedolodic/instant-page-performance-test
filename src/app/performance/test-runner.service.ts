@@ -35,7 +35,7 @@ export interface TestResults {
 export class TestRunnerService {
   private readonly ROUTES = ['/page1', '/page2', '/page3', '/'];
   private readonly instantPageScript = `
-    let t;const e=document.createElement("script");e.src="./assets/instantpage.js",e.type="module",document.head.appendChild(e);
+    let t;const e=document.createElement("script");e.src="/assets/instantpage.js",e.type="module",document.head.appendChild(e);
   `;
 
   private results = new BehaviorSubject<TestResults | null>(null);
@@ -66,7 +66,7 @@ export class TestRunnerService {
       // Create and append the script element
       const script = document.createElement('script');
       script.type = 'module';
-      script.src = './assets/instantpage.js';
+      script.src = '/assets/instantpage.js';
 
       // Wait for the script to load
       await new Promise<void>((resolve, reject) => {
