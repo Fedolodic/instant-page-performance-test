@@ -6,6 +6,10 @@
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <script type="module">
+      /*! instant.page v5.2.0 - (C) 2019-2024 Alexandre Dieulot - https://instant.page/license */
+      let t,e=document.createElement("link");if(e.relList.supports("prefetch")&&e.relList.supports("modulepreload")){let t=navigator.userAgent.indexOf("Chrome/");if(t>-1){let e=navigator.userAgent.substring(t+"Chrome/".length),r=e.indexOf(".");t=parseInt(e.substring(0,r),10)}let r="instantVaryAccept"in document.body.dataset||"Shopify"in window,n=t&&t<110&&r,a=new Set;document.addEventListener("touchstart",function(t){e=performance.now();let r=t.target.closest("a");if(!r||!isPreloadable(r))return;preload(r.href)},!0),document.addEventListener("mouseover",function(e){if(performance.now()-t<1100)return;let r=e.target.closest("a");if(!r||!isPreloadable(r))return;r.addEventListener("mouseout",mouseoutListener,{passive:!0}),timeoutId=setTimeout(function(){preload(r.href),timeoutId=void 0},65)},!0)}function isPreloadable(t){if(!t||!t.href)return;if(a.has(t.href))return;let e=new URL(t.href);if(e.origin!=location.origin)return;let r=t.pathname+t.search;return"noInstant"in t.dataset||!r.startsWith(location.pathname+location.search)&&(!/\.[a-zA-Z]{0,4}$/.test(r)||r.includes("#"))||r.includes("/cdn-cgi/")||r.includes("?s=")||e.protocol!=="http:"&&e.protocol!=="https:"?void 0:(a.add(t.href),!0)}function preload(t){let e=document.createElement("link");e.rel="prefetch",e.href=t,e.fetchPriority="high",document.head.appendChild(e)}
+    </script>
   </head>
   <body>
     <app-root></app-root>

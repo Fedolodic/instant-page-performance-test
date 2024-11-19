@@ -58,38 +58,12 @@ export class TestRunnerService {
   }
 
   private async loadInstantPage(): Promise<void> {
-    console.log('Starting to load instant.page script...');
-    try {
-      // First try to remove any existing instant.page scripts
-      this.cleanupInstantPage();
-
-      // Create and append the script element
-      const script = document.createElement('script');
-      script.type = 'module';
-      script.src = '/assets/instantpage.js';
-
-      // Wait for the script to load
-      await new Promise<void>((resolve, reject) => {
-        script.onload = () => {
-          console.log('instant.page script loaded successfully');
-          resolve();
-        };
-        script.onerror = error => {
-          console.error('Failed to load instant.page script:', error);
-          reject(new Error('Failed to load instant.page script'));
-        };
-        document.head.appendChild(script);
-      });
-    } catch (error) {
-      console.error('Failed to load instant.page:', error);
-      throw new Error('Failed to load instant.page script');
-    }
+    console.log('instant.page is embedded in index.html');
+    return Promise.resolve();
   }
 
   private cleanupInstantPage() {
-    console.log('Cleaning up instant.page...');
-    const scripts = document.querySelectorAll('script[src*="instant.page"]');
-    scripts.forEach(script => script.remove());
+    console.log('No cleanup needed for embedded instant.page');
   }
 
   async runTest(withInstantPage: boolean): Promise<void> {
