@@ -6,9 +6,16 @@
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FFedolodic%2Finstant-page-performance-test)
 
-[Live Demo](https://instant-page-performance-test-9uf9sdvvk-davidmtz00s-projects.vercel.app) | [Documentation](#documentation) | [Contributing](#contributing)
+🌐 **[Live Demo](https://instant-page-performance-test-9uf9sdvvk-davidmtz00s-projects.vercel.app)** | [Documentation](#documentation) | [Contributing](#contributing)
 
 </div>
+
+## 🎯 Try It Out
+
+Visit our **[Live Demo](https://instant-page-performance-test-9uf9sdvvk-davidmtz00s-projects.vercel.app)** to experience:
+- Real-time performance comparisons
+- Interactive 3D visualizations
+- Instant.page optimization effects
 
 ## 📊 Performance Testing Dashboard
 
