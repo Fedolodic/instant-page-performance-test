@@ -1,0 +1,180 @@
+/* PrimeNG Theme and Icons */
+@import 'primeng/resources/themes/lara-light-blue/theme.css';
+@import 'primeng/resources/primeng.css';
+@import 'primeicons/primeicons.css';
+
+/* Custom Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@100;400;700&display=swap');
+
+:root {
+  /* Experimental Color Palette - Neo-Brutalist with Gradients */
+  --color-primary: #ff6b6b;
+  --color-secondary: #4ecdc4;
+  --color-accent: #ffe66d;
+  --color-dark: #2c3e50;
+  --color-light: #f7f9fc;
+
+  /* Gradient Backgrounds */
+  --gradient-primary: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+  --gradient-secondary: linear-gradient(135deg, #4ecdc4, #ffe66d);
+  --gradient-dark: linear-gradient(135deg, #2c3e50, #3498db);
+
+  /* Typography */
+  --font-primary: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing System */
+  --space-unit: 0.25rem;
+  --space-xs: calc(var(--space-unit) * 2);
+  --space-sm: calc(var(--space-unit) * 4);
+  --space-md: calc(var(--space-unit) * 6);
+  --space-lg: calc(var(--space-unit) * 8);
+  --space-xl: calc(var(--space-unit) * 12);
+
+  /* Animation Timings */
+  --transition-fast: 200ms;
+  --transition-medium: 400ms;
+  --transition-slow: 600ms;
+}
+
+/* Global Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--color-light);
+  color: var(--color-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Experimental Card Design */
+.neo-card {
+  background: white;
+  border: 2px solid var(--color-dark);
+  border-radius: 12px;
+  box-shadow: 8px 8px 0 var(--color-dark);
+  transition:
+    transform var(--transition-fast) cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow var(--transition-fast) cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.neo-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0 var(--color-dark);
+}
+
+/* Experimental Button Design */
+.neo-button {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-md);
+  border: 2px solid var(--color-dark);
+  border-radius: 8px;
+  background: var(--color-light);
+  cursor: pointer;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: all var(--transition-fast) ease;
+}
+
+.neo-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-primary);
+  z-index: -1;
+  transform: translateY(100%);
+  transition: transform var(--transition-fast) ease;
+}
+
+.neo-button:hover::before {
+  transform: translateY(0);
+}
+
+/* Data Visualization Enhancements */
+.chart-container {
+  position: relative;
+  border-radius: 16px;
+  padding: var(--space-md);
+  background: white;
+  border: 2px solid var(--color-dark);
+  transition: transform var(--transition-medium)
+    cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.chart-container:hover {
+  transform: scale(1.02);
+}
+
+/* Make chart responsive */
+p-chart {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+p-chart > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+p-chart canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Touch-optimized Styles */
+@media (hover: none) {
+  .neo-card,
+  .neo-button,
+  .chart-container {
+    transform: none !important;
+    transition: opacity var(--transition-fast) ease;
+  }
+
+  .neo-card:active,
+  .neo-button:active,
+  .chart-container:active {
+    opacity: 0.8;
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Loading Animation */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.loading {
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Grid System */
+.grid-container {
+  display: grid;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}

@@ -1,0 +1,75 @@
+<div class="container">
+  <h2>Performance Test Runner</h2>
+
+  <div class="controls">
+    <button [disabled]="isRunning" (click)="runTest(false)">
+      Run Test without instant.page
+    </button>
+    <button [disabled]="isRunning" (click)="runTest(true)">
+      Run Test with instant.page
+    </button>
+  </div>
+
+  <div class="status" *ngIf="isRunning">Running test...</div>
+
+  <div class="error" *ngIf="error">
+    {{ error }}
+  </div>
+
+  <div class="results" *ngIf="testResults">
+    <h3>Test Results</h3>
+
+    <div class="summary">
+      <h4>Summary</h4>
+      <p>
+        Average Navigation Time:
+        {{ formatDuration(testResults.summary.averageTime) }}
+      </p>
+      <p>
+        Total Test Duration: {{ formatDuration(testResults.summary.totalTime) }}
+      </p>
+      <p>Successful Navigations: {{ testResults.summary.successCount }}</p>
+    </div>
+
+    <div class="metrics">
+      <h4>Detailed Metrics</h4>
+      <div class="metric-item" *ngFor="let metric of testResults.metrics">
+        <div class="route-header">
+          <strong>{{ metric.route }}</strong>
+        </div>
+        <div class="metric-details">
+          <div class="metric">
+            <span class="label">Navigation Time:</span>
+            <span class="value">{{ formatDuration(metric.duration) }}</span>
+          </div>
+          <div class="metric" *ngIf="metric.firstContentfulPaint">
+            <span class="label">First Contentful Paint:</span>
+            <span class="value">{{
+              formatDuration(metric.firstContentfulPaint)
+            }}</span>
+          </div>
+          <div class="metric" *ngIf="metric.largestContentfulPaint">
+            <span class="label">Largest Contentful Paint:</span>
+            <span class="value">{{
+              formatDuration(metric.largestContentfulPaint)
+            }}</span>
+          </div>
+          <div class="metric" *ngIf="metric.timeToInteractive">
+            <span class="label">Time to Interactive:</span>
+            <span class="value">{{
+              formatDuration(metric.timeToInteractive)
+            }}</span>
+          </div>
+          <div
+            class="metric"
+            *ngIf="metric.cumulativeLayoutShift !== undefined">
+            <span class="label">Cumulative Layout Shift:</span>
+            <span class="value">{{
+              metric.cumulativeLayoutShift.toFixed(3)
+            }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
